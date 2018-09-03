@@ -75,12 +75,10 @@ class AddCommentsWizard(Wizard):
         to_save = []
         for invoice in invoices:
             for line in invoice.lines:
-                if line.product:
-                    for category in line.product.categories:
-                        if category in categories:
-                            invoice.comment = comment
-                            invoice.description = comment
-                            to_save.append(invoice)
+                if line.product and line.product.category in categories:
+                    invoice.comment = comment
+                    invoice.description = comment
+                    to_save.append(invoice)
         if to_save:
             Invoice.save(to_save)
         return 'end'
