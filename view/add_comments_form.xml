@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!-- The COPYRIGHT file at the top level of this repository contains the full
+     copyright notices and license terms. -->
+<form col="4">
+    <image name="tryton-dialog-information" xexpand="0" xfill="0"/>
+    <label string="Choose the categories that will be used to select the invoices"
+        id="choose" yalign="0.0" xalign="0.0" xexpand="1" colspan="3"/>
+    <label name="selected_invoices"/>
+    <field name="selected_invoices"/>
+    <label name="ignored_invoices"/>
+    <field name="ignored_invoices"/>
+    <newline/>
+    <field name="categories" colspan="4"/>
+    <label name="comment" colspan="4"/>
+    <field name="comment" colspan="4"/>
+</form>

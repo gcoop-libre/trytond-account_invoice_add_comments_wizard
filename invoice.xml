@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!-- The COPYRIGHT file at the top level of this repository contains the full
+     copyright notices and license terms. -->
+<tryton>
+    <data>
+        <record model="ir.ui.view" id="add_comments_view_form">
+            <field name="model">invoice.add_comments</field>
+            <field name="type">form</field>
+            <field name="name">add_comments_form</field>
+        </record>
+
+        <record model="ir.action.wizard" id="wizard_add_comments">
+            <field name="name">Add Comments</field>
+            <field name="wiz_name">invoice.add_comments.wizard</field>
+            <field name="model">account.invoice</field>
+        </record>
+        <record model="ir.action.keyword" id="act_wizard_add_comments_keyword">
+            <field name="keyword">form_action</field>
+            <field name="model">account.invoice,-1</field>
+            <field name="action" ref="wizard_add_comments"/>
+        </record>
+    </data>
+</tryton>
