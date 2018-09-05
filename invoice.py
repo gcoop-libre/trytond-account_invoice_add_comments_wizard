@@ -22,7 +22,10 @@ class AddComments(ModelView):
         states={
             'readonly': Eval('selected_invoices', 0) == 0,
             }, depends=['selected_invoices'])
-    comment = fields.Text('Comment')
+    comment = fields.Text('Comment',
+        states={
+            'readonly': Eval('selected_invoices', 0) == 0,
+            }, depends=['selected_invoices'])
 
 
 class AddCommentsWizard(Wizard):
@@ -79,6 +82,7 @@ class AddCommentsWizard(Wizard):
                     invoice.comment = comment
                     invoice.description = comment
                     to_save.append(invoice)
+                    break
         if to_save:
             Invoice.save(to_save)
         return 'end'
